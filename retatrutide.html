@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Retatrutide Dosage Calculator | Peptide Calculator</title>
+  <meta name="description" content="Free Retatrutide reconstitution calculator. Enter your vial size, BAC water and dose to instantly see how many units to draw, doses per vial and when to discard the vial.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 2-4 4 4 4 4-4-4-4Z"/>
+            <path d="m14 6-9.5 9.5a2.12 2.12 0 1 0 3 3L17 9"/>
+            <path d="m9 11 3 3"/>
+            <path d="m5 19-3 3"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Peptide<span class="brand-accent">Calc</span></span>
+          <span class="brand-subtitle">Reconstitution & Syringe Calculator</span>
+        </div>
+      </a>
+      <div class="header-badges">
+        <span class="trust-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Free Tool • No Signup
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- 1. Top Disclaimer Bar (Mandatory PRD Rule) -->
+      <aside class="disclaimer-banner" role="note" aria-label="Medical Disclaimer">
+        <div class="disclaimer-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div class="disclaimer-text">
+          <strong>Educational & Research Math Only:</strong> This calculator converts volume to syringe units. It does <em>not</em> recommend dosages or provide medical advice. Always follow instructions from your licensed healthcare provider or manufacturer vial labeling.
+        </div>
+      </aside>
+
+      <!-- 3. Calculator Layout Grid -->
+      <div class="calculator-grid">
+        
+        <!-- Inputs Column -->
+        <section class="card input-card" aria-labelledby="inputs-heading">
+          <div class="card-header">
+            <div class="step-indicator">Step 1</div>
+            <!-- H1 and 2. Short Intro under H1 -->
+            <h1 id="inputs-heading" class="card-title">Retatrutide Dosage Calculator</h1>
+            <p class="card-desc">This peptide calculator for Retatrutide works out how many units to draw once you enter your vial size, the BAC water you added and your dose in mcg.</p>
+          </div>
+
+          <form id="calc-form" class="calc-form" onsubmit="return false;" novalidate>
+            
+            <!-- 1. Fixed Peptide: Retatrutide (No Dropdown) -->
+            <div class="form-group">
+              <div class="label-row">
+                <label class="form-label">Peptide</label>
+                <span class="unit-indicator" style="color: var(--primary); font-weight: 700;">Fixed</span>
+              </div>
+              <div class="input-with-unit">
+                <input type="text" class="form-input" value="Retatrutide" readonly aria-readonly="true" tabindex="-1" style="background-color: var(--bg-card-subtle); cursor: default; font-weight: 700; color: var(--primary-hover);">
+                <span class="input-suffix">Retatrutide</span>
+              </div>
+            </div>
+
+            <!-- 2. Vial Size (mg) - Presets 5 mg, 10 mg and 20 mg -->
+            <div class="form-group">
+              <div class="label-row">
+                <label for="vial-mg" class="form-label">Peptide Vial Size <span class="required-star">*</span></label>
+                <span class="unit-indicator">Total Powder (mg)</span>
+              </div>
+              <div class="input-with-unit">
+                <input type="number" id="vial-mg" class="form-input" placeholder="e.g. 10" min="0.1" step="any" required inputmode="decimal">
+                <span class="input-suffix">mg</span>
+              </div>
+              <!-- Presets: 5 mg, 10 mg and 20 mg -->
+              <div class="preset-buttons" role="group" aria-label="Vial size presets" style="grid-template-columns: repeat(3, 1fr);">
+                <button type="button" class="preset-btn" data-input="vial-mg" data-val="5">5 mg</button>
+                <button type="button" class="preset-btn" data-input="vial-mg" data-val="10">10 mg</button>
+                <button type="button" class="preset-btn" data-input="vial-mg" data-val="20">20 mg</button>
+              </div>
+            </div>
+
+            <!-- 3. BAC Water (mL) - Presets 1 mL, 2 mL, 3 mL, 5 mL -->
+            <div class="form-group">
+              <div class="label-row">
+                <label for="bac-water" class="form-label">Bacteriostatic Water Added <span class="required-star">*</span></label>
+                <span class="unit-indicator">Liquid Volume (mL)</span>
+              </div>
+              <div class="input-with-unit">
+                <input type="number" id="bac-water" class="form-input" placeholder="e.g. 2" min="0.1" step="any" required inputmode="decimal">
+                <span class="input-suffix">mL</span>
+              </div>
+              <!-- Presets -->
+              <div class="preset-buttons" role="group" aria-label="BAC water presets">
+                <button type="button" class="preset-btn" data-input="bac-water" data-val="1">1 mL</button>
+                <button type="button" class="preset-btn" data-input="bac-water" data-val="2">2 mL</button>
+                <button type="button" class="preset-btn" data-input="bac-water" data-val="3">3 mL</button>
+                <button type="button" class="preset-btn" data-input="bac-water" data-val="5">5 mL</button>
+              </div>
+            </div>
+
+            <!-- 4. Desired Dose (mcg / mg Toggle) - Never pre-filled -->
+            <div class="form-group highlight-group">
+              <div class="label-row">
+                <label for="desired-dose" class="form-label">Desired Dose <span class="required-star">*</span></label>
+                
+                <!-- mcg / mg Toggle Switch -->
+                <div class="unit-toggle" role="radiogroup" aria-label="Desired dose unit">
+                  <button type="button" id="toggle-mcg" class="toggle-btn active" role="radio" aria-checked="true">mcg</button>
+                  <button type="button" id="toggle-mg" class="toggle-btn" role="radio" aria-checked="false">mg</button>
+                </div>
+              </div>
+              <div class="input-with-unit">
+                <input type="number" id="desired-dose" class="form-input" placeholder="Enter dose (e.g. 500)" min="0.001" step="any" required inputmode="decimal">
+                <span class="input-suffix" id="dose-unit-label">mcg</span>
+              </div>
+              <div class="dose-conversion-helper" id="dose-helper" aria-live="polite">
+                <!-- Dynamically shows e.g. "500 mcg = 0.5 mg" -->
+              </div>
+            </div>
+
+            <!-- 5. Syringe Size Dropdown (U-100 default) -->
+            <div class="form-group">
+              <div class="label-row">
+                <label for="syringe-size" class="form-label">Syringe Size & Calibration <span class="required-star">*</span></label>
+              </div>
+              <div class="select-wrapper">
+                <select id="syringe-size" class="form-select">
+                  <option value="u100-100" data-units="100" data-ml="1.0" data-cal="100">1.0 mL (100 Units) — U-100 (Standard)</option>
+                  <option value="u100-50" data-units="50" data-ml="0.5" data-cal="100">0.5 mL (50 Units) — U-100</option>
+                  <option value="u100-30" data-units="30" data-ml="0.3" data-cal="100">0.3 mL (30 Units) — U-100</option>
+                  <option value="u50-50" data-units="50" data-ml="1.0" data-cal="50">1.0 mL (50 Units) — U-50</option>
+                  <option value="u40-40" data-units="40" data-ml="1.0" data-cal="40">1.0 mL (40 Units) — U-40</option>
+                  <option value="u40-20" data-units="20" data-ml="0.5" data-cal="40">0.5 mL (20 Units) — U-40</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Optional Tracking & Protocol Accordion -->
+            <details class="optional-details">
+              <summary class="details-summary">
+                <div class="summary-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                  <span>Protocol & Expiry Tracking (Optional)</span>
+                </div>
+                <span class="summary-badge">Days & Expiry</span>
+              </summary>
+              <div class="details-content">
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="frequency" class="form-label">Dosing Frequency</label>
+                    <select id="frequency" class="form-select">
+                      <option value="">Select frequency...</option>
+                      <option value="1">Once Daily (Every day)</option>
+                      <option value="2">Twice Daily (2x / day)</option>
+                      <option value="0.5">Every Other Day (EOD)</option>
+                      <option value="0.2857">2 Times per Week</option>
+                      <option value="0.4286">3 Times per Week</option>
+                      <option value="0.142857">Once Weekly (1x / week)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="mix-date" class="form-label">Reconstitution Date</label>
+                    <input type="date" id="mix-date" class="form-input">
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <!-- Reset Button -->
+            <div class="form-actions">
+              <button type="button" id="btn-reset" class="btn-secondary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                Reset Calculator
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Results Column -->
+        <section class="card result-card" aria-labelledby="results-heading">
+          <div class="card-header">
+            <div class="step-indicator success">Step 2</div>
+            <h2 id="results-heading" class="card-title">Reconstitution Results</h2>
+            <p class="card-desc">Accurate syringe units, draw volume, and concentration breakdown.</p>
+          </div>
+
+          <!-- Empty State (Shown when inputs are missing) -->
+          <div id="empty-state" class="empty-state">
+            <div class="empty-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              </svg>
+            </div>
+            <h3 class="empty-title">Awaiting Your Input Values</h3>
+            <p class="empty-text">Complete all required fields on the left to calculate your exact syringe draw units and view visual alignment.</p>
+            <div class="checklist">
+              <div class="checklist-item" id="check-vial">
+                <span class="check-bullet">1</span> Enter peptide vial amount (mg)
+              </div>
+              <div class="checklist-item" id="check-water">
+                <span class="check-bullet">2</span> Enter BAC water volume (mL)
+              </div>
+              <div class="checklist-item" id="check-dose">
+                <span class="check-bullet">3</span> Enter your dose (mcg or mg)
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Calculation Container (Hidden until all inputs filled) -->
+          <div id="results-container" class="results-container" style="display: none;">
+            
+            <!-- Smart Safety Warnings Area -->
+            <div id="warnings-area" class="warnings-area" aria-live="assertive">
+              <!-- Over Capacity Warning -->
+              <div id="warn-overcapacity" class="alert-box alert-danger" style="display: none;">
+                <div class="alert-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div class="alert-body">
+                  <h4 class="alert-title">Dose Exceeds Syringe Capacity!</h4>
+                  <p class="alert-text" id="overcapacity-text">
+                    This dose requires <strong id="overcapacity-units">0</strong> units (<span id="overcapacity-ml">0</span> mL), but your selected syringe only holds <span id="overcapacity-max">0</span> units.
+                  </p>
+                  <div class="alert-actions">
+                    <strong>Recommended Solutions:</strong>
+                    <ul class="alert-solutions">
+                      <li>Switch to a larger syringe (e.g. 0.5 mL or 1.0 mL) in the dropdown.</li>
+                      <li>Or reconstitute with less BAC water to create a more concentrated solution.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- mg / mcg Mistake Guard -->
+              <div id="warn-mistake-guard" class="alert-box alert-warning" style="display: none;">
+                <div class="alert-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div class="alert-body">
+                  <h4 class="alert-title">Possible Unit Mistake (mg vs. mcg)</h4>
+                  <p class="alert-text" id="mistake-guard-text">
+                    The requested dose of <strong id="mistake-dose-val"></strong> seems unusually large for peptide protocols and would require an excessive number of units or vials.
+                  </p>
+                  <div class="mistake-actions">
+                    <button type="button" id="btn-fix-unit" class="btn-action-fix">
+                      Switch dose to <span id="mistake-mcg-fix"></span> mcg instead
+                    </button>
+                    <span class="mistake-hint">Most peptide doses are prescribed in micrograms (mcg), not milligrams (mg).</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Small Volume Caution (< 5 Units) -->
+              <div id="warn-low-volume" class="alert-box alert-info" style="display: none;">
+                <div class="alert-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                </div>
+                <div class="alert-body">
+                  <h4 class="alert-title">Low Volume Tip (&lt; 5 Units)</h4>
+                  <p class="alert-text" id="low-volume-text">
+                    Drawing under 5 units can be difficult to measure precisely on standard syringes. Consider adding more BAC water when mixing to yield a larger, easier-to-read volume.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 30-Day Expiry Safety Flag -->
+              <div id="warn-expiry" class="alert-box alert-warning" style="display: none;">
+                <div class="alert-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="alert-body">
+                  <h4 class="alert-title">Extended Vial Duration Warning</h4>
+                  <p class="alert-text">
+                    At your current frequency, this vial will last over 30 days. Reconstituted peptides generally maintain optimal stability for <strong>28–30 days</strong> under refrigeration. Consider mixing smaller quantities or half-vials.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Output: Units To Draw -->
+            <div class="hero-result" id="hero-result-card">
+              <span class="hero-label">YOUR EXACT SYRINGE DOSE</span>
+              <div class="hero-number-wrap">
+                <span class="hero-number" id="out-units">0</span>
+                <span class="hero-unit">UNITS</span>
+              </div>
+              <div class="hero-subtext">
+                Pull plunger until the leading stopper ring hits <strong id="out-sub-units">0 units</strong> (<span id="out-volume-ml">0.00 mL</span>)
+              </div>
+              <div class="fraction-note" id="fraction-note" style="display: none;">
+                <!-- e.g. "Note: 8.33 units is between 8 and 8.5 units" -->
+              </div>
+            </div>
+
+            <!-- Visual Syringe Container -->
+            <div class="syringe-section">
+              <div class="section-subhead">
+                <span class="subhead-title">Interactive Visual Syringe</span>
+                <span class="subhead-meta" id="syringe-cal-label">1.0 mL U-100 Syringe</span>
+              </div>
+
+              <!-- Syringe SVG Canvas -->
+              <div class="syringe-viewport">
+                <div class="syringe-wrapper" id="syringe-svg-container">
+                  <!-- Generated via script.js -->
+                </div>
+              </div>
+
+              <!-- Magnified Stopper View -->
+              <div class="magnifier-panel">
+                <div class="magnifier-header">
+                  <div class="magnifier-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    Zoomed Stopper View (Fridge Alignment Check)
+                  </div>
+                  <span class="magnifier-tip">Align the leading rubber ring to the target mark</span>
+                </div>
+                <div class="magnifier-canvas-wrap" id="magnifier-container">
+                  <!-- Magnifier SVG generated via script.js -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Metrics Grid -->
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-icon blue">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                </div>
+                <div class="metric-info">
+                  <span class="metric-label">Draw Volume</span>
+                  <span class="metric-value" id="out-metric-ml">0.00 mL</span>
+                  <span class="metric-hint">Liquid to inject</span>
+                </div>
+              </div>
+
+              <div class="metric-card">
+                <div class="metric-icon teal">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <div class="metric-info">
+                  <span class="metric-label">Concentration</span>
+                  <span class="metric-value" id="out-concentration-mg">0.00 mg/mL</span>
+                  <span class="metric-hint" id="out-concentration-mcg">0 mcg/mL</span>
+                </div>
+              </div>
+
+              <div class="metric-card">
+                <div class="metric-icon indigo">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+                </div>
+                <div class="metric-info">
+                  <span class="metric-label">Micrograms per Unit</span>
+                  <span class="metric-value" id="out-mcg-per-unit">0.0 mcg</span>
+                  <span class="metric-hint">Each syringe tick</span>
+                </div>
+              </div>
+
+              <div class="metric-card">
+                <div class="metric-icon purple">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                </div>
+                <div class="metric-info">
+                  <span class="metric-label">Total Doses per Vial</span>
+                  <span class="metric-value" id="out-doses-per-vial">0</span>
+                  <span class="metric-hint">Based on vial mg</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Optional Protocol Stats (if frequency/date filled) -->
+            <div id="protocol-stats-box" class="protocol-stats-box" style="display: none;">
+              <div class="protocol-stat-item" id="stat-duration-wrap" style="display: none;">
+                <span class="stat-label">Vial Estimated Lifespan:</span>
+                <span class="stat-val" id="out-lifespan-days">0 Days</span>
+              </div>
+              <div class="protocol-stat-item" id="stat-discard-wrap" style="display: none;">
+                <span class="stat-label">Recommended Discard Date:</span>
+                <span class="stat-val" id="out-discard-date">—</span>
+                <span class="stat-sub">(28 days post-mix)</span>
+              </div>
+            </div>
+
+            <!-- Bottom Disclaimer Under Result Card (Mandatory PRD Rule) -->
+            <div class="result-disclaimer-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              <span><strong>Medical Safety Note:</strong> All results are mathematical conversions based on your inputs. They do not constitute dosing guidance. Always verify with your physician or pharmacist before administration.</span>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!-- 4. Examples Table Section -->
+      <section class="card content-section" id="examples" aria-labelledby="examples-title">
+        <div class="section-header">
+          <div class="step-indicator">Reference</div>
+          <h2 id="examples-title" class="section-title">Retatrutide Reconstitution Examples</h2>
+          <p class="section-desc">Verified mathematical setups using a standard U-100 syringe (100 units = 1.0 mL).</p>
+        </div>
+
+        <div class="table-scroll-hint">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <span>Scroll sideways on mobile to view full table</span>
+        </div>
+
+        <div class="table-responsive">
+          <table class="examples-table">
+            <thead>
+              <tr>
+                <th scope="col">Vial Size</th>
+                <th scope="col">BAC Water</th>
+                <th scope="col">Desired Dose</th>
+                <th scope="col" class="th-result">Syringe Draw</th>
+                <th scope="col">Draw Volume</th>
+                <th scope="col">Concentration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>5 mg</strong> vial</td>
+                <td>2 mL water</td>
+                <td>500 mcg dose</td>
+                <td class="td-result">
+                  <span class="draw-pill">Draw 20 units</span>
+                </td>
+                <td>0.20 mL</td>
+                <td>2.5 mg/mL</td>
+              </tr>
+              <tr>
+                <td><strong>10 mg</strong> vial</td>
+                <td>2 mL water</td>
+                <td>2000 mcg dose</td>
+                <td class="td-result">
+                  <span class="draw-pill">Draw 40 units</span>
+                </td>
+                <td>0.40 mL</td>
+                <td>5.0 mg/mL</td>
+              </tr>
+              <tr>
+                <td><strong>10 mg</strong> vial</td>
+                <td>3 mL water</td>
+                <td>1500 mcg dose</td>
+                <td class="td-result">
+                  <span class="draw-pill">Draw 45 units</span>
+                </td>
+                <td>0.45 mL</td>
+                <td>3.33 mg/mL</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="table-caption">
+          * Mathematical setups for standard U-100 insulin syringes (100 units = 1.0 mL). Example numbers only — not dose recommendations.
+        </p>
+      </section>
+
+      <!-- 5. Protocol & Expiry Tracking Section -->
+      <section class="card content-section" id="protocol-expiry" aria-labelledby="protocol-title">
+        <div class="section-header">
+          <div class="step-indicator">Protocol & Stability</div>
+          <h2 id="protocol-title" class="section-title">Protocol & Expiry Tracking</h2>
+          <p class="section-desc">Monitoring vial longevity, dosing schedule, and the 28–30 day discard rule.</p>
+        </div>
+        <div style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; display: flex; flex-direction: column; gap: 0.75rem;">
+          <p>When working with reconstituted peptides, maintaining an exact timeline is essential. Once bacteriostatic water (containing 0.9% benzyl alcohol) is introduced to the vial, laboratory standards generally establish an in-use shelf life of <strong>28 to 30 days</strong> when stored continuously under refrigeration at 36°F to 46°F (2°C to 8°C).</p>
+          <p>By entering your intended dosing frequency and mixing date into the calculator's optional tracking panel, the system computes two critical operational figures:</p>
+          <ul style="margin-left: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem;">
+            <li><strong>Vial Lifespan (Days):</strong> Calculated as total doses contained in the vial divided by doses administered per day. This indicates whether the vial volume will be consumed before chemical stability degrades.</li>
+            <li><strong>Discard Date:</strong> Projected exactly 28 days following the reconstitution date. If your protocol schedule exceeds 28–30 days, the calculator flags an extended vial duration warning.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 6. Overview Section About Retatrutide Vials & Reconstitution Maths Only -->
+      <section class="card content-section" id="overview" aria-labelledby="overview-title">
+        <div class="section-header">
+          <div class="step-indicator">Mathematics</div>
+          <h2 id="overview-title" class="section-title">Retatrutide Reconstitution & Calculation Math</h2>
+          <p class="section-desc">Formulas and mechanics governing liquid dilution and syringe calibration.</p>
+        </div>
+        <div style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; display: flex; flex-direction: column; gap: 0.75rem;">
+          <p>Retatrutide is manufactured as a lyophilized (freeze-dried) powder sealed in sterile glass vials under vacuum. Because the powder has negligible displacement volume once dissolved, the liquid volume of the reconstituted solution is equal to the volume of bacteriostatic water added.</p>
+          <p>The mathematical relationship governing every draw consists of three sequential formulas:</p>
+          <ol style="margin-left: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem;">
+            <li><strong>Concentration (mg/mL):</strong> Total peptide mass in milligrams divided by the added bacteriostatic water volume in milliliters. For example: 10 mg ÷ 2 mL = 5 mg/mL (5,000 mcg/mL).</li>
+            <li><strong>Draw Volume (mL):</strong> Target dose divided by solution concentration. If the target dose is 2,000 mcg (2 mg), then: 2 mg ÷ 5 mg/mL = 0.40 mL.</li>
+            <li><strong>Syringe Calibration (Units):</strong> Draw volume in milliliters multiplied by syringe calibration factor. On a standard U-100 syringe (100 units/mL): 0.40 mL × 100 = <strong>40 units</strong>.</li>
+          </ol>
+          <p>This process is purely mathematical. No health or therapeutic claims are made, and users must refer to professional medical directives for protocol specifications.</p>
+        </div>
+      </section>
+
+      <!-- 7. Common Retatrutide Vial Sizes Section (5 mg, 10 mg, 20 mg) -->
+      <section class="card content-section" id="vial-sizes" aria-labelledby="vial-sizes-title">
+        <div class="section-header">
+          <div class="step-indicator">Vial Specifications</div>
+          <h2 id="vial-sizes-title" class="section-title">Common Retatrutide Vial Sizes</h2>
+          <p class="section-desc">Comparing 5 mg, 10 mg, and 20 mg vials and dilution mechanics.</p>
+        </div>
+        <div style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; display: flex; flex-direction: column; gap: 0.75rem;">
+          <p>Retatrutide research vials are commonly supplied in three standard quantities: <strong>5 mg</strong>, <strong>10 mg</strong>, and <strong>20 mg</strong>. The total milligram content defines the total active substance available, but does not dictate a single fixed volume.</p>
+          <ul style="margin-left: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem;">
+            <li><strong>5 mg Vials:</strong> Typically reconstituted with 1 mL or 2 mL of bacteriostatic water, yielding concentrations of 5.0 mg/mL (50 mcg/unit) or 2.5 mg/mL (25 mcg/unit) respectively on a standard U-100 syringe.</li>
+            <li><strong>10 mg Vials:</strong> Commonly reconstituted with 2 mL or 3 mL of bacteriostatic water, yielding concentrations of 5.0 mg/mL (50 mcg/unit) or 3.33 mg/mL (33.3 mcg/unit).</li>
+            <li><strong>20 mg Vials:</strong> Often reconstituted with 2 mL, 3 mL, or 5 mL of bacteriostatic water, resulting in concentrations of 10.0 mg/mL (100 mcg/unit), 6.67 mg/mL (66.7 mcg/unit), or 4.0 mg/mL (40 mcg/unit).</li>
+          </ul>
+          <p>Selecting the reconstitution volume is an operational balance: adding more BAC water decreases solution concentration, producing a larger draw volume with more syringe markings for higher visual measuring precision; adding less BAC water produces a concentrated solution requiring fewer units to draw.</p>
+        </div>
+      </section>
+
+      <!-- 8. FAQ Accordion Section -->
+      <section class="card content-section" id="faq" aria-labelledby="faq-title">
+        <div class="section-header">
+          <div class="step-indicator">Common Questions</div>
+          <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">Retatrutide reconstitution math, measurements, and stability facts.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-summary">
+              <span class="faq-question-text">How many units is 2 mg of Retatrutide?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>In a 10 mg vial mixed with 2 mL BAC water the concentration is 5 mg/mL, so 2 mg (2000 mcg) = 0.40 mL = <strong>40 units</strong> on a standard U-100 syringe (0.40 mL × 100 units/mL = 40 units).</p>
+              <p style="margin-top: 0.5rem;">The exact unit count changes depending on how the vial is mixed. For instance, if a 5 mg vial is reconstituted with 2 mL BAC water, the concentration is 2.5 mg/mL, and a 2 mg dose would require 0.80 mL (80 units). Use the calculator above to check the exact units for your specific vial size and water volume.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span class="faq-question-text">Is 1 mg the same as 1000 mcg?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p><strong>Yes: 1 mg = 1000 mcg</strong> (pure metric conversion). The calculator asks for the dose in mcg by default, but also includes a quick mcg/mg toggle. To convert milligrams to micrograms, multiply by 1,000 (e.g. 1 mg × 1,000 = 1,000 mcg). To convert micrograms to milligrams, divide by 1,000 (e.g. 1,000 mcg ÷ 1,000 = 1 mg).</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span class="faq-question-text">How many doses are in a 10 mg vial?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>The total doses in a vial is calculated by dividing total vial milligrams by the dose amount in milligrams. For example, at 2 mg per dose, a 10 mg vial holds exactly <strong>5 doses</strong> (10 mg ÷ 2 mg = 5 doses). If the dose is 1 mg (1,000 mcg), the vial holds 10 doses (10 mg ÷ 1 mg = 10 doses). This is a purely mathematical relationship based on vial content.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span class="faq-question-text">How long can a mixed vial be used?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>Once reconstituted with bacteriostatic water, a mixed vial is generally used within <strong>28–30 days</strong> when stored continuously refrigerated at 36°F to 46°F (2°C to 8°C). The calculator shows your projected vial days and discard date using this 28–30 day guidance in the optional protocol tracking section.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 9. Safety Disclaimer (Same as other pages) -->
+      <aside class="disclaimer-banner" role="note" aria-label="Medical Disclaimer">
+        <div class="disclaimer-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div class="disclaimer-text">
+          <strong>Educational & Research Math Only:</strong> This calculator converts volume to syringe units. It does <em>not</em> recommend dosages or provide medical advice. Always follow instructions from your licensed healthcare provider or manufacturer vial labeling.
+        </div>
+      </aside>
+
+      <!-- 9b. Link Back to Main Calculator -->
+      <nav class="card content-section" aria-label="Related Calculators" style="text-align: center; padding: 1.25rem;">
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.5rem;">Need to calculate reconstitution units for other peptides?</p>
+        <div style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="index.html" class="draw-pill" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; font-size: 0.95rem; padding: 0.6rem 1.25rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            Peptide Dosage Calculator
+          </a>
+        </div>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p class="footer-copy">© 2026 PeptideCalc. Dedicated to harm reduction, mathematical clarity, and research accuracy.</p>
+      <p class="footer-legal">For educational & research purposes only. Not intended to diagnose, treat, cure, or prevent any medical condition.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
