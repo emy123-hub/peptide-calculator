@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>How to Reconstitute Peptides: A Step-by-Step Beginner's Guide</title>
+  <meta name="description" content="Learn how to reconstitute peptides with simple maths: vial size, BAC water, concentration, mcg per unit and syringe units explained, with worked examples and a free peptide reconstitution calculator.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Scoped styling for article page */
+    .article-container {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .article-intro-p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text-main);
+      margin-bottom: 0.85rem;
+    }
+    .article-intro-p:last-child {
+      margin-bottom: 0;
+    }
+    .callout-box {
+      background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+      border: 1.5px solid #99f6e4;
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      align-items: flex-start;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    @media (min-width: 640px) {
+      .callout-box {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .callout-text h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f766e;
+      margin-bottom: 0.25rem;
+    }
+    .callout-text p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin: 0;
+    }
+    .callout-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+      white-space: nowrap;
+      transition: background-color 0.15s ease;
+    }
+    .callout-btn:hover {
+      background: var(--primary-hover);
+    }
+    .article-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 520px) {
+      .article-grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+    .info-mini-card {
+      background: var(--bg-card-subtle);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      box-sizing: border-box;
+      min-width: 0;
+      width: 100%;
+    }
+    .info-mini-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: var(--radius-full);
+      background: var(--primary-light);
+      color: var(--primary-hover);
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+    }
+    .info-mini-title {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .info-mini-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+    .formula-step-block {
+      background: #ffffff;
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.2rem;
+      margin-bottom: 0.85rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .formula-step-block:last-child {
+      margin-bottom: 0;
+    }
+    .formula-step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.45rem;
+    }
+    .formula-step-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--primary-light);
+      color: var(--primary-hover);
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+    }
+    .formula-step-heading {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .formula-math-box {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 0.9rem;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #0369a1;
+      margin: 0.45rem 0;
+      overflow-x: auto;
+      white-space: nowrap;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .formula-step-explanation {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .mistake-card {
+      background: #ffffff;
+      border: 1.5px solid #fed7aa;
+      border-left: 4px solid #f97316;
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1.1rem;
+      margin-bottom: 0.75rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .mistake-card:last-child {
+      margin-bottom: 0;
+    }
+    .mistake-card h3 {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #9a3412;
+      margin-bottom: 0.25rem;
+    }
+    .mistake-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.48;
+      margin: 0;
+    }
+    .habit-card {
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1.1rem;
+      margin-bottom: 0.75rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .habit-card:last-child {
+      margin-bottom: 0;
+    }
+    .habit-card h3 {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #14532d;
+      margin-bottom: 0.25rem;
+    }
+    .habit-card p {
+      font-size: 0.85rem;
+      color: #166534;
+      line-height: 1.48;
+      margin: 0;
+    }
+    .links-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .links-bar a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.45rem 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 2-4 4 4 4 4-4-4-4Z"/>
+            <path d="m14 6-9.5 9.5a2.12 2.12 0 1 0 3 3L17 9"/>
+            <path d="m9 11 3 3"/>
+            <path d="m5 19-3 3"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Peptide<span class="brand-accent">Calc</span></span>
+          <span class="brand-subtitle">Reconstitution & Syringe Calculator</span>
+        </div>
+      </a>
+      <div class="header-badges">
+        <span class="trust-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Beginner Guide • Educational Math
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Top Disclaimer Line (Mandatory PRD Rule) -->
+      <aside class="disclaimer-banner" role="note" aria-label="Medical Disclaimer">
+        <div class="disclaimer-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div class="disclaimer-text">
+          <strong>Educational & Research Math Only:</strong> This guide explains the vocabulary and mathematical calculations of peptide reconstitution. It does <em>not</em> recommend dosages, provide medical advice, or explain administration techniques. Always follow instructions from your licensed healthcare provider or manufacturer vial labeling.
+        </div>
+      </aside>
+
+      <div class="article-container">
+
+        <!-- Article Header & Intro -->
+        <article class="card content-section">
+          <div class="card-header" style="margin-bottom: 1rem;">
+            <div class="step-indicator">Educational Guide</div>
+            <h1 class="card-title" style="font-size: 1.6rem; line-height: 1.25; margin-top: 0.35rem;">How to Reconstitute Peptides: A Step-by-Step Beginner's Guide</h1>
+            <p class="card-desc">Understanding the terms, concentration formulas, and syringe units without confusion.</p>
+          </div>
+
+          <div style="margin-bottom: 1.2rem;">
+            <p class="article-intro-p">
+              Reconstitution means turning a freeze-dried (lyophilized) powder into a liquid solution by adding bacteriostatic (BAC) water. Because peptides are fragile molecules that break down quickly once dissolved in liquid, manufacturers package and store them as dry powders in sealed, sterile glass vials.
+            </p>
+            <p class="article-intro-p">
+              This guide explains the maths behind reconstitution — how your vial size and water amount decide the solution's concentration and the syringe units you draw. Understanding this arithmetic ensures you can calculate your draw volume confidently.
+            </p>
+            <p class="article-intro-p" style="background: #f8fafc; border-left: 3px solid var(--primary); padding: 0.65rem 0.85rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 0.9rem; color: var(--text-muted);">
+              <strong>Important Safety Rule:</strong> This guide does not recommend any dose or protocol, nor does it describe injection techniques. A dose always comes from your own protocol or prescriber. Every number used in this guide is an illustrative example for maths only.
+            </p>
+          </div>
+
+          <!-- Calculator Callout Box -->
+          <div class="callout-box">
+            <div class="callout-text">
+              <h3>Skip the maths — use the free Peptide Calculator</h3>
+              <p>Enter your vial size, water amount, and dose to instantly see exact syringe units with an interactive syringe visual.</p>
+            </div>
+            <a href="index.html" class="callout-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m18 2-4 4 4 4 4-4-4-4Z"/><path d="m14 6-9.5 9.5a2.12 2.12 0 1 0 3 3L17 9"/><path d="m9 11 3 3"/><path d="m5 19-3 3"/></svg>
+              Open Free Peptide Calculator
+            </a>
+          </div>
+        </article>
+
+        <!-- Section 1: The 4 Numbers You Need -->
+        <section class="card content-section" id="four-numbers" aria-labelledby="section-1-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 1</div>
+            <h2 id="section-1-title" class="section-title">The 4 Numbers You Need</h2>
+            <p class="section-desc">To calculate your syringe units, you only need four inputs.</p>
+          </div>
+
+          <div class="article-grid-2">
+            <div class="info-mini-card">
+              <span class="info-mini-num">1</span>
+              <div class="info-mini-title">Vial Size in Milligrams (mg)</div>
+              <div class="info-mini-desc">
+                The total amount of peptide powder printed on the vial label (such as 5 mg, 10 mg, or 50 mg). This is the weight of dry powder inside the vial.
+              </div>
+            </div>
+
+            <div class="info-mini-card">
+              <span class="info-mini-num">2</span>
+              <div class="info-mini-title">BAC Water Amount in Milliliters (mL)</div>
+              <div class="info-mini-desc">
+                The volume of bacteriostatic water you add to dissolve the powder (commonly 1 mL, 2 mL, 3 mL, or 5 mL). The amount you add controls the solution strength.
+              </div>
+            </div>
+
+            <div class="info-mini-card">
+              <span class="info-mini-num">3</span>
+              <div class="info-mini-title">The Dose in Micrograms (mcg) or Milligrams (mg)</div>
+              <div class="info-mini-desc">
+                The exact amount specified in your protocol. This comes strictly from your prescriber — never from this site. (1 mg = 1,000 mcg).
+              </div>
+            </div>
+
+            <div class="info-mini-card">
+              <span class="info-mini-num">4</span>
+              <div class="info-mini-title">Syringe Type</div>
+              <div class="info-mini-desc">
+                This site's examples use a standard <strong>U-100 insulin syringe</strong>, where 100 units = 1 mL (so 1 unit = 0.01 mL).
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: The Calculation, Step by Step -->
+        <section class="card content-section" id="step-by-step" aria-labelledby="section-2-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 2</div>
+            <h2 id="section-2-title" class="section-title">The Calculation, Step by Step</h2>
+            <p class="section-desc">Follow these four simple steps to find your exact syringe units.</p>
+          </div>
+
+          <div class="formula-step-block">
+            <div class="formula-step-header">
+              <span class="formula-step-tag">Step 1</span>
+              <h3 class="formula-step-heading">Concentration in Milligrams per Milliliter (mg/mL)</h3>
+            </div>
+            <div class="formula-math-box">
+              Concentration = vial size (mg) ÷ BAC water (mL)
+            </div>
+            <p class="formula-step-explanation">
+              This gives mg per mL. For example, if you add 2 mL of BAC water to a 5 mg vial: <code>5 mg ÷ 2 mL = 2.5 mg/mL</code>.
+            </p>
+          </div>
+
+          <div class="formula-step-block">
+            <div class="formula-step-header">
+              <span class="formula-step-tag">Step 2</span>
+              <h3 class="formula-step-heading">Convert to Micrograms per Milliliter (mcg/mL)</h3>
+            </div>
+            <div class="formula-math-box">
+              mcg per mL = Concentration (mg/mL) × 1,000
+            </div>
+            <p class="formula-step-explanation">
+              Convert to mcg per mL by multiplying by 1,000 (1 mg = 1,000 mcg). Using our example: <code>2.5 mg/mL × 1,000 = 2,500 mcg/mL</code>.
+            </p>
+          </div>
+
+          <div class="formula-step-block">
+            <div class="formula-step-header">
+              <span class="formula-step-tag">Step 3</span>
+              <h3 class="formula-step-heading">Find Micrograms per Syringe Unit</h3>
+            </div>
+            <div class="formula-math-box">
+              mcg per unit = mcg per mL ÷ 100
+            </div>
+            <p class="formula-step-explanation">
+              On a U-100 syringe, 1 unit = 0.01 mL, so mcg per unit = mcg per mL ÷ 100. With our 2,500 mcg/mL solution: <code>2,500 ÷ 100 = 25 mcg per unit</code>.
+            </p>
+          </div>
+
+          <div class="formula-step-block">
+            <div class="formula-step-header">
+              <span class="formula-step-tag">Step 4</span>
+              <h3 class="formula-step-heading">Calculate Units to Draw</h3>
+            </div>
+            <div class="formula-math-box">
+              Units to draw = dose in mcg ÷ mcg per unit
+            </div>
+            <p class="formula-step-explanation">
+              Divide your dose by the mcg per unit. If your example dose is 250 mcg: <code>250 mcg ÷ 25 mcg/unit = 10 units</code> (0.10 mL).
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 3: Worked Examples (Maths Only) -->
+        <section class="card content-section" id="worked-examples" aria-labelledby="section-3-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 3</div>
+            <h2 id="section-3-title" class="section-title">Worked Examples (Maths Only)</h2>
+            <p class="section-desc">Verified calculations using standard U-100 insulin syringes (100 units = 1.0 mL).</p>
+          </div>
+
+          <div class="table-scroll-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <span>Scroll sideways on mobile to view full table</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="examples-table">
+              <thead>
+                <tr>
+                  <th scope="col">Vial Size</th>
+                  <th scope="col">BAC Water</th>
+                  <th scope="col">Concentration</th>
+                  <th scope="col">Strength per Unit</th>
+                  <th scope="col">Example Dose</th>
+                  <th scope="col" class="th-result">Syringe Draw</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>5 mg</strong> vial</td>
+                  <td>2 mL water</td>
+                  <td>2.5 mg/mL</td>
+                  <td>25 mcg / unit</td>
+                  <td>250 mcg</td>
+                  <td class="td-result">
+                    <span class="draw-pill">10 units (0.10 mL)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>10 mg</strong> vial</td>
+                  <td>2 mL water</td>
+                  <td>5.0 mg/mL</td>
+                  <td>50 mcg / unit</td>
+                  <td>500 mcg</td>
+                  <td class="td-result">
+                    <span class="draw-pill">10 units (0.10 mL)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>5 mg</strong> vial</td>
+                  <td>1 mL water</td>
+                  <td>5.0 mg/mL</td>
+                  <td>50 mcg / unit</td>
+                  <td>250 mcg</td>
+                  <td class="td-result">
+                    <span class="draw-pill">5 units (0.05 mL)</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="table-caption" style="margin-top: 0.5rem; font-weight: 600; color: var(--text-muted);">
+            These are maths examples only — they are not dose recommendations.
+          </p>
+        </section>
+
+        <!-- Section 4: How the Water Amount Changes Your Answer -->
+        <section class="card content-section" id="water-amount" aria-labelledby="section-4-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 4</div>
+            <h2 id="section-4-title" class="section-title">How the Water Amount Changes Your Answer</h2>
+            <p class="section-desc">Why the amount of water you add alters the units you draw.</p>
+          </div>
+
+          <div style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; display: flex; flex-direction: column; gap: 0.75rem;">
+            <p>
+              Explain with the 5 mg vial: with 1 mL of water the same 250 mcg example equals 5 units, but with 2 mL of water it equals 10 units.
+            </p>
+            <p>
+              More water = weaker concentration = a larger number of units for the same dose. Less water = stronger concentration = fewer units.
+            </p>
+            <p>
+              Adding 2 mL to a 5 mg vial spreads the 250 mcg dose across 10 units, giving you more tick marks on the syringe barrel for an easier, more forgiving draw. Adding only 1 mL makes the solution twice as concentrated, meaning that same 250 mcg dose is only 5 units, which can be harder to measure accurately on a 100-unit syringe.
+            </p>
+            <p>
+              There is no single right amount for everyone — it depends on the vial and the reader's own protocol, which is why the <a href="index.html" style="color: var(--primary); font-weight: 700; text-decoration: underline;">peptide calculator</a> asks for the water amount every time.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 5: Common Mistakes to Avoid -->
+        <section class="card content-section" id="common-mistakes" aria-labelledby="section-5-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 5</div>
+            <h2 id="section-5-title" class="section-title">Common Mistakes to Avoid</h2>
+            <p class="section-desc">Avoid these four frequent calculation and unit errors.</p>
+          </div>
+
+          <div class="mistake-card">
+            <h3>1. Mixing up mg and mcg</h3>
+            <p>
+              The difference is 1,000 times (1 mg = 1,000 mcg). This is the most dangerous maths mistake in peptide calculations. Confusing the two leads to a 1,000-fold error. Always check whether your protocol specifies micrograms or milligrams.
+            </p>
+          </div>
+
+          <div class="mistake-card">
+            <h3>2. Forgetting that changing the water amount changes concentration and units</h3>
+            <p>
+              Units are not fixed measurements of powder; they represent liquid volume. If you change from 1 mL to 2 mL of water in your next vial, your concentration changes, and your units must change as well.
+            </p>
+          </div>
+
+          <div class="mistake-card">
+            <h3>3. Using a different syringe type (U-50 or U-40) with U-100 maths</h3>
+            <p>
+              Standard calculations assume a U-100 syringe (100 units = 1 mL). Using a U-50 syringe (50 units = 1 mL) or a U-40 syringe (40 units = 1 mL) with U-100 math delivers an incorrect dose. Always check the markings on your syringe.
+            </p>
+          </div>
+
+          <div class="mistake-card">
+            <h3>4. Copying someone else's units without checking their vial size and water amount</h3>
+            <p>
+              Units are meaningless without knowing the vial size in mg and the BAC water amount in mL. Ten units from a 5 mg vial with 2 mL of water is 250 mcg, but ten units from a 10 mg vial with 1 mL of water is 1,000 mcg. Never copy someone else's units.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 6: After Mixing: Two Habits -->
+        <section class="card content-section" id="two-habits" aria-labelledby="section-6-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 6</div>
+            <h2 id="section-6-title" class="section-title">After Mixing: Two Habits</h2>
+            <p class="section-desc">Two essential safety habits once your vial is reconstituted.</p>
+          </div>
+
+          <div class="habit-card">
+            <h3>Habit 1: Write the mixing date and the discard date on the vial</h3>
+            <p>
+              Always write the mixing date, the amount of BAC water added, and the discard date directly on the vial label. Reconstituted solutions generally maintain stability for 28–30 days when refrigerated.
+            </p>
+          </div>
+
+          <div class="habit-card">
+            <h3>Habit 2: Follow the vial label and a licensed professional's guidance</h3>
+            <p>
+              Always follow the vial label and a licensed professional's guidance for storage and use — this guide covers maths only. Keep reconstituted vials stored at proper refrigerated temperatures (36°F to 46°F / 2°C to 8°C).
+            </p>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="card content-section" id="faq" aria-labelledby="faq-title">
+          <div class="section-header">
+            <div class="step-indicator">Common Questions</div>
+            <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+            <p class="section-desc">Short answers to key questions about reconstitution maths.</p>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-summary">
+                <span class="faq-question-text">What does reconstitute mean?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>It means adding a liquid (usually bacteriostatic water) to a freeze-dried powder so it dissolves into a solution whose strength (concentration) can be calculated.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-question-text">How much BAC water should I add?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>There is no universal amount. It depends on the vial size and the dose in your own protocol. More water makes a weaker concentration and more units per dose; less water makes a stronger concentration and fewer units. Use the calculator on this site to test the maths.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-question-text">Is 1 mg the same as 1,000 mcg?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes. 1 mg = 1,000 mcg. Mixing these two up is a 1,000-times error, so the calculator always shows the conversion.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-question-text">Why did my units change when I added more water?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>Because the concentration changed. The same dose spread through more water means each unit holds less, so you need more units.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- Calculators Navigation Section -->
+        <nav class="card content-section" aria-label="Peptide Calculators" style="text-align: center; padding: 1.25rem 1rem;">
+          <p style="font-size: 0.94rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">Try the calculators</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Free reconstitution calculators with interactive visual syringes:</p>
+          <div class="links-bar">
+            <a href="index.html" class="draw-pill" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 2-4 4 4 4 4-4-4-4Z"/><path d="m14 6-9.5 9.5a2.12 2.12 0 1 0 3 3L17 9"/><path d="m9 11 3 3"/><path d="m5 19-3 3"/></svg>
+              Peptide Calculator
+            </a>
+            <a href="bpc-157.html" class="draw-pill">BPC-157</a>
+            <a href="semaglutide.html" class="draw-pill">Semaglutide</a>
+            <a href="tirzepatide.html" class="draw-pill">Tirzepatide</a>
+            <a href="ghk-cu.html" class="draw-pill">GHK-Cu</a>
+          </div>
+        </nav>
+
+        <!-- Full Bottom Medical Safety Disclaimer -->
+        <aside class="disclaimer-banner" role="note" aria-label="Full Medical Disclaimer" style="margin-bottom: 2rem;">
+          <div class="disclaimer-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <div class="disclaimer-text">
+            <strong>Educational & Research Math Only:</strong> This calculator and educational guide convert volume to syringe units. It does not recommend dosages, prescribe protocols, or provide medical advice. All numbers and examples are strictly illustrative mathematical conversions. Always follow instructions from your licensed healthcare provider, prescriber, or manufacturer vial labeling, and ensure compliance with your local laws and regulations.
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p class="footer-copy">© 2026 PeptideCalc. Dedicated to harm reduction, mathematical clarity, and research accuracy.</p>
+      <p class="footer-legal">For educational & research purposes only. Not intended to diagnose, treat, cure, or prevent any medical condition.</p>
+    </div>
+  </footer>
+</body>
+</html>
