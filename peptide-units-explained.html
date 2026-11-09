@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Peptide Units Explained: mg vs mcg vs mL vs Syringe Units</title>
+  <meta name="description" content="Peptide units explained in simple words: what mg and mcg measure, what mL means, what a syringe unit really is on a U-100 syringe, and how the same dose becomes different units in different mixes.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Scoped styling for units guide article */
+    .article-container {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .article-intro-p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text-main);
+      margin-bottom: 0.85rem;
+    }
+    .article-intro-p:last-child {
+      margin-bottom: 0;
+    }
+    .callout-box {
+      background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+      border: 1.5px solid #99f6e4;
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      align-items: flex-start;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    @media (min-width: 640px) {
+      .callout-box {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .callout-text h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f766e;
+      margin-bottom: 0.25rem;
+    }
+    .callout-text p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin: 0;
+    }
+    .callout-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+      white-space: nowrap;
+      transition: background-color 0.15s ease;
+    }
+    .callout-btn:hover {
+      background: var(--primary-hover);
+    }
+    .article-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 520px) {
+      .article-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+    .info-mini-card {
+      background: var(--bg-card-subtle);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      box-sizing: border-box;
+      min-width: 0;
+      width: 100%;
+    }
+    .info-mini-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+      background: var(--primary-light);
+      color: var(--primary-hover);
+      font-size: 0.75rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      width: fit-content;
+      margin-bottom: 0.2rem;
+    }
+    .info-mini-title {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .info-mini-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+    .formula-step-block {
+      background: #ffffff;
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1.15rem;
+      margin-bottom: 0.75rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .formula-step-block:last-child {
+      margin-bottom: 0;
+    }
+    .formula-step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .formula-step-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--primary-light);
+      color: var(--primary-hover);
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+    }
+    .formula-step-heading {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .formula-math-box {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 0.85rem;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #0369a1;
+      margin: 0.4rem 0;
+      overflow-x: auto;
+      white-space: nowrap;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .formula-step-explanation {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.48;
+    }
+    .warning-callout-line {
+      background: #fffbeb;
+      border: 1.5px solid #fde68a;
+      border-left: 4px solid #f59e0b;
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.1rem;
+      font-size: 0.88rem;
+      color: #92400e;
+      line-height: 1.5;
+      margin: 1rem 0;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .warning-callout-line strong {
+      color: #78350f;
+    }
+    .mistake-card {
+      background: #ffffff;
+      border: 1.5px solid #fed7aa;
+      border-left: 4px solid #f97316;
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1.1rem;
+      margin-bottom: 0.75rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .mistake-card:last-child {
+      margin-bottom: 0;
+    }
+    .mistake-card h3 {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #9a3412;
+      margin-bottom: 0.25rem;
+    }
+    .mistake-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.48;
+      margin: 0;
+    }
+    .links-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .links-bar a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.45rem 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 2-4 4 4 4 4-4-4-4Z"/>
+            <path d="m14 6-9.5 9.5a2.12 2.12 0 1 0 3 3L17 9"/>
+            <path d="m9 11 3 3"/>
+            <path d="m5 19-3 3"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Peptide<span class="brand-accent">Calc</span></span>
+          <span class="brand-subtitle">Reconstitution & Syringe Calculator</span>
+        </div>
+      </a>
+      <div class="header-badges">
+        <span class="trust-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Educational Guide • Pure Math
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Top Disclaimer Line (Mandatory PRD Rule) -->
+      <aside class="disclaimer-banner" role="note" aria-label="Medical Disclaimer">
+        <div class="disclaimer-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div class="disclaimer-text">
+          <strong>Educational & Research Math Only:</strong> This guide explains unit meanings and mathematical conversions. It does <em>not</em> recommend dosages, provide medical advice, or explain administration techniques. Always follow instructions from your licensed healthcare provider or manufacturer vial labeling.
+        </div>
+      </aside>
+
+      <div class="article-container">
+
+        <!-- Article Header & Intro -->
+        <article class="card content-section">
+          <div class="card-header" style="margin-bottom: 1rem;">
+            <div class="step-indicator">Educational Guide</div>
+            <h1 class="card-title" style="font-size: 1.6rem; line-height: 1.25; margin-top: 0.35rem;">Peptide Units Explained: mg vs mcg vs mL vs Syringe Units</h1>
+            <p class="card-desc">Understanding what each unit measures and how they connect in reconstitution math.</p>
+          </div>
+
+          <div style="margin-bottom: 1.2rem;">
+            <p class="article-intro-p">
+              Almost every beginner mistake with peptides is really a units mistake. When preparing a peptide solution, four different measurements are involved at once: the vial speaks in milligrams (mg), the dose is written in micrograms (mcg), the bacteriostatic water is measured in milliliters (mL), and the syringe barrel displays "units".
+            </p>
+            <p class="article-intro-p">
+              This guide explains what each one measures and how they connect, so the calculator's answers stop looking like magic. When you understand the distinction between dry powder weight, liquid volume, and syringe markings, calculating your syringe draw becomes simple and clear.
+            </p>
+            <p class="article-intro-p" style="background: #f8fafc; border-left: 3px solid var(--primary); padding: 0.65rem 0.85rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 0.9rem; color: var(--text-muted);">
+              <strong>Important Safety Rule:</strong> This guide explains only unit meanings and conversion maths — what mg, mcg, mL, and syringe units measure, and how to convert between them. It does not give any dose recommendation, describe injection technique, or make any health or benefit claims. All numbers in this article are illustrative examples for maths only.
+            </p>
+          </div>
+
+          <!-- Calculator Callout Box -->
+          <div class="callout-box">
+            <div class="callout-text">
+              <h3>Convert your units automatically</h3>
+              <p>Check any vial size, water amount, and dose instantly with the free interactive calculator.</p>
+            </div>
+            <a href="index.html" class="callout-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m18 2-4 4 4 4 4-4-4-4Z"/><path d="m14 6-9.5 9.5a2.12 2.12 0 1 0 3 3L17 9"/><path d="m9 11 3 3"/><path d="m5 19-3 3"/></svg>
+              Open Free Calculator
+            </a>
+          </div>
+        </article>
+
+        <!-- Section 1: The 4 Units at a Glance -->
+        <section class="card content-section" id="four-units" aria-labelledby="section-1-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 1</div>
+            <h2 id="section-1-title" class="section-title">The 4 Units at a Glance</h2>
+            <p class="section-desc">Each unit measures a completely different physical property.</p>
+          </div>
+
+          <div class="table-scroll-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <span>Scroll sideways on mobile to view full table</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="examples-table">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 28%;">Unit</th>
+                  <th scope="col" style="width: 24%;">Measurement Type</th>
+                  <th scope="col" style="width: 48%;">What It Measures</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>mg (milligram)</strong></td>
+                  <td>Weight (Mass)</td>
+                  <td>The weight of the powder in the vial. Vial sizes are written in mg: 5 mg, 10 mg.</td>
+                </tr>
+                <tr>
+                  <td><strong>mcg (microgram)</strong></td>
+                  <td>Weight (Mass)</td>
+                  <td>The weight of a single dose. Doses are usually written in mcg because they are much smaller than a whole vial.</td>
+                </tr>
+                <tr>
+                  <td><strong>mL (millilitre)</strong></td>
+                  <td>Liquid Volume</td>
+                  <td>A volume of liquid: how much water you add, and how much liquid you draw.</td>
+                </tr>
+                <tr>
+                  <td><strong>Syringe unit</strong></td>
+                  <td>Volume Tick Mark</td>
+                  <td>A volume mark on the syringe, NOT a weight. On a U-100 syringe, 100 units = 1 mL, so 1 unit = 0.01 mL.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Section 2: mg vs mcg: The 1,000× Rule -->
+        <section class="card content-section" id="mg-vs-mcg" aria-labelledby="section-2-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 2</div>
+            <h2 id="section-2-title" class="section-title">mg vs mcg: The 1,000× Rule</h2>
+            <p class="section-desc">The metric conversion between whole vials and single doses.</p>
+          </div>
+
+          <div style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; display: flex; flex-direction: column; gap: 0.8rem;">
+            <div class="formula-math-box" style="font-size: 0.95rem; text-align: center;">
+              1 mg = 1,000 mcg &nbsp;|&nbsp; 1 mcg = 0.001 mg
+            </div>
+
+            <p>
+              <strong>1 mg = 1,000 mcg.</strong> So a 5 mg vial holds 5,000 mcg of powder, and 0.25 mg is the same as 250 mcg. Similarly, 0.5 mg is the same as 500 mcg, and 10 mg is 10,000 mcg.
+            </p>
+            <p>
+              To convert milligrams to micrograms, multiply by 1,000 (move the decimal point three places to the right: <code>0.25 mg × 1,000 = 250 mcg</code>). To convert micrograms back to milligrams, divide by 1,000 (move the decimal point three places to the left: <code>250 mcg ÷ 1,000 = 0.25 mg</code>).
+            </p>
+            <p>
+              <strong>The Classic Mix-Up:</strong> Reading "250" and not checking whether it is mg or mcg is a 1,000-times error — the single most dangerous maths mistake in this hobby, and the reason the calculator on this site always shows the conversion. Mistaking 250 mg for 250 mcg represents an accidental 1,000-fold discrepancy. Always double-check your unit symbol.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 3: What mL Measures -->
+        <section class="card content-section" id="what-ml-measures" aria-labelledby="section-3-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 3</div>
+            <h2 id="section-3-title" class="section-title">What mL Measures</h2>
+            <p class="section-desc">Measuring liquid volume in peptide reconstitution.</p>
+          </div>
+
+          <div style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; display: flex; flex-direction: column; gap: 0.8rem;">
+            <p>
+              mL measures liquid, never powder. In peptide math, milliliters appear in two places: the water you add to the vial (1–5 mL), and the amount you draw into the syringe.
+            </p>
+            <p>
+              On a U-100 syringe the two languages match like this:
+            </p>
+
+            <div class="article-grid-2">
+              <div class="info-mini-card">
+                <span class="info-mini-badge">10 Units</span>
+                <div class="info-mini-title">0.1 mL of Liquid</div>
+                <div class="info-mini-desc">10 units on a U-100 syringe equals exactly 0.1 mL.</div>
+              </div>
+
+              <div class="info-mini-card">
+                <span class="info-mini-badge">50 Units</span>
+                <div class="info-mini-title">0.5 mL of Liquid</div>
+                <div class="info-mini-desc">50 units on a U-100 syringe equals exactly 0.5 mL.</div>
+              </div>
+
+              <div class="info-mini-card">
+                <span class="info-mini-badge">100 Units</span>
+                <div class="info-mini-title">1.0 mL of Liquid</div>
+                <div class="info-mini-desc">100 units on a U-100 syringe equals exactly 1.0 mL (a full syringe).</div>
+              </div>
+
+              <div class="info-mini-card">
+                <span class="info-mini-badge">1 Unit</span>
+                <div class="info-mini-title">0.01 mL of Liquid</div>
+                <div class="info-mini-desc">Every individual small tick mark represents exactly 0.01 mL.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: What a Syringe Unit Really Is -->
+        <section class="card content-section" id="syringe-unit" aria-labelledby="section-4-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 4</div>
+            <h2 id="section-4-title" class="section-title">What a Syringe Unit Really Is</h2>
+            <p class="section-desc">Understanding syringe units as slices of volume determined by concentration.</p>
+          </div>
+
+          <div style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; display: flex; flex-direction: column; gap: 0.8rem;">
+            <p>
+              A unit is a slice of volume — how much mcg it contains depends entirely on the mix. A syringe barrel has no fixed dose strength of its own until you draw liquid from a dissolved vial.
+            </p>
+            <p>
+              Show the connection:
+            </p>
+
+            <div class="formula-math-box" style="text-align: center;">
+              concentration in mcg/mL ÷ 100 = mcg per unit (U-100)
+            </div>
+
+            <p>
+              Two mixes of the same 5 mg vial make the point:
+            </p>
+            <ul style="margin-left: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem;">
+              <li><strong>Mixed with 2 mL:</strong> 5 mg ÷ 2 mL = 2.5 mg/mL = 2,500 mcg/mL. 2,500 ÷ 100 → <strong>25 mcg per unit</strong>.</li>
+              <li><strong>Mixed with 1 mL:</strong> 5 mg ÷ 1 mL = 5.0 mg/mL = 5,000 mcg/mL. 5,000 ÷ 100 → <strong>50 mcg per unit</strong>.</li>
+            </ul>
+            <p>
+              Because the 1 mL mix has half as much water, each unit is twice as strong as in the 2 mL mix.
+            </p>
+
+            <div class="warning-callout-line">
+              <strong>Important Warning:</strong> Syringe "units" are NOT IU (international units) — IU measures biological activity for certain medicines, while syringe units only measure volume. Never treat them as the same number.
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: One Dose, Start to Finish -->
+        <section class="card content-section" id="worked-example" aria-labelledby="section-5-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 5</div>
+            <h2 id="section-5-title" class="section-title">One Dose, Start to Finish</h2>
+            <p class="section-desc">Follow one worked calculation from powder in the vial to syringe markings.</p>
+          </div>
+
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.85rem;">
+            Consider a <strong>5 mg vial mixed with 2 mL of BAC water</strong>:
+          </p>
+
+          <div class="formula-step-block">
+            <div class="formula-step-header">
+              <span class="formula-step-tag">Step 1</span>
+              <h3 class="formula-step-heading">Calculate Concentration in mg/mL</h3>
+            </div>
+            <div class="formula-math-box">
+              concentration = 5 mg ÷ 2 mL = 2.5 mg/mL
+            </div>
+            <p class="formula-step-explanation">Each milliliter of liquid contains 2.5 milligrams of dissolved peptide.</p>
+          </div>
+
+          <div class="formula-step-block">
+            <div class="formula-step-header">
+              <span class="formula-step-tag">Step 2</span>
+              <h3 class="formula-step-heading">Convert to Micrograms (mcg/mL)</h3>
+            </div>
+            <div class="formula-math-box">
+              in mcg that is 2,500 mcg/mL
+            </div>
+            <p class="formula-step-explanation">Multiply 2.5 mg/mL by 1,000 to match single-dose units.</p>
+          </div>
+
+          <div class="formula-step-block">
+            <div class="formula-step-header">
+              <span class="formula-step-tag">Step 3</span>
+              <h3 class="formula-step-heading">Find Micrograms per Syringe Unit</h3>
+            </div>
+            <div class="formula-math-box">
+              mcg per unit = 2,500 ÷ 100 = 25 mcg per unit
+            </div>
+            <p class="formula-step-explanation">On a U-100 syringe (100 units/mL), each unit mark holds 25 mcg.</p>
+          </div>
+
+          <div class="formula-step-block">
+            <div class="formula-step-header">
+              <span class="formula-step-tag">Step 4</span>
+              <h3 class="formula-step-heading">Calculate Syringe Units to Draw</h3>
+            </div>
+            <div class="formula-math-box">
+              an example dose of 250 mcg = 250 ÷ 25 = 10 units
+            </div>
+            <p class="formula-step-explanation">Divide your target dose by the mcg per unit to find your draw mark.</p>
+          </div>
+
+          <div class="formula-step-block">
+            <div class="formula-step-header">
+              <span class="formula-step-tag">Step 5</span>
+              <h3 class="formula-step-heading">Check Liquid Volume in Milliliters</h3>
+            </div>
+            <div class="formula-math-box">
+              10 units on a U-100 syringe = 0.1 mL
+            </div>
+            <p class="formula-step-explanation">Drawing to 10 units pulls 0.1 mL of liquid into the barrel.</p>
+          </div>
+
+          <div style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin-top: 1rem;">
+            <p>
+              Then compare the same 250 mcg example in the 1 mL mix: 50 mcg per unit, so <code>250 ÷ 50 = only 5 units</code> — same dose, half the units, because the mix is twice as strong. You can check any vial size or water volume on the <a href="index.html" style="color: var(--primary); font-weight: 700; text-decoration: underline;">peptide calculator</a>.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 6: Common Units Mix-Ups -->
+        <section class="card content-section" id="common-mix-ups" aria-labelledby="section-6-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 6</div>
+            <h2 id="section-6-title" class="section-title">Common Units Mix-Ups</h2>
+            <p class="section-desc">Four common mistakes that create severe calculation errors.</p>
+          </div>
+
+          <div class="mistake-card">
+            <h3>1. Treating units as mcg</h3>
+            <p>
+              10 units is only 10 mcg if the mix happens to be 1 mcg per unit, which almost never happens. Units measure liquid volume, not powder weight.
+            </p>
+          </div>
+
+          <div class="mistake-card">
+            <h3>2. Confusing IU with syringe units</h3>
+            <p>
+              IU measures biological activity for medicines like insulin or HGH, while syringe units only measure volume. Never treat them as interchangeable numbers.
+            </p>
+          </div>
+
+          <div class="mistake-card">
+            <h3>3. Reading the vial label wrong</h3>
+            <p>
+              The mg on the vial is the TOTAL powder in the vial, not a single dose. A 5 mg vial holds multiple doses depending on your protocol.
+            </p>
+          </div>
+
+          <div class="mistake-card">
+            <h3>4. Copying someone else's units</h3>
+            <p>
+              Their mix is different, so their units are a different dose. Drawing 10 units from a concentrated mix delivers far more peptide than 10 units from a dilute mix.
+            </p>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="card content-section" id="faq" aria-labelledby="faq-title">
+          <div class="section-header">
+            <div class="step-indicator">Common Questions</div>
+            <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+            <p class="section-desc">Short, direct answers to common beginner units questions.</p>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-summary">
+                <span class="faq-question-text">Is 1 unit the same as 1 mcg?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>No. A unit is volume (0.01 mL on a U-100 syringe). How many mcg it holds depends on the concentration — 25 mcg per unit in one mix, 50 in another.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-question-text">How many mcg are in 10 units?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>Multiply 10 by your mix's mcg per unit. At 25 mcg per unit it is 250 mcg; at 50 mcg per unit it is 500 mcg. The calculator shows this number for your exact mix.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-question-text">Is 0.1 mL the same as 10 units?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>On a U-100 syringe, yes — 100 units make 1 mL, so every 10 units is 0.1 mL. On other syringe types the marks differ, which is why the calculator asks for the syringe type.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-question-text">Why does my vial say mg but my dose is in mcg?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>Because the vial holds thousands of mcg. mg is the practical unit for the whole vial (5 mg), mcg is the practical unit for one small dose (250 mcg) — the same relationship as kilograms and grams.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- Keep Learning Navigation Section -->
+        <nav class="card content-section" aria-label="Keep Learning" style="text-align: center; padding: 1.25rem 1rem;">
+          <p style="font-size: 0.94rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">Keep learning</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Explore related reconstitution guides and calculation tools:</p>
+          <div class="links-bar">
+            <a href="how-to-reconstitute-peptides.html" class="draw-pill">How to Reconstitute Peptides</a>
+            <a href="bacteriostatic-water.html" class="draw-pill">Bacteriostatic Water Guide</a>
+            <a href="index.html" class="draw-pill">Peptide Calculator</a>
+          </div>
+        </nav>
+
+        <!-- Full Bottom Medical Safety Disclaimer -->
+        <aside class="disclaimer-banner" role="note" aria-label="Full Medical Disclaimer" style="margin-bottom: 2rem;">
+          <div class="disclaimer-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <div class="disclaimer-text">
+            <strong>Educational & Research Math Only:</strong> This guide explains unit meanings and mathematical conversions. It does not recommend dosages, prescribe protocols, or provide medical advice. All numbers and examples are strictly illustrative mathematical conversions. Always follow instructions from your licensed healthcare provider, prescriber, or manufacturer vial labeling, and ensure compliance with your local laws and regulations.
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p class="footer-copy">© 2026 PeptideCalc. Dedicated to harm reduction, mathematical clarity, and research accuracy.</p>
+      <p class="footer-legal">For educational & research purposes only. Not intended to diagnose, treat, cure, or prevent any medical condition.</p>
+    </div>
+  </footer>
+</body>
+</html>
