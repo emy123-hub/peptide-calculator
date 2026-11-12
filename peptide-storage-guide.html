@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Peptide Storage Guide: How Long Do Peptides Last?</title>
+  <meta name="description" content="How to store peptides the right way: unmixed powder in the freezer or fridge, mixed vials in the fridge for 28–30 days, light and travel rules, and the signs that mean discard a vial.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Scoped styling for peptide storage guide article */
+    .article-container {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .article-intro-p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text-main);
+      margin-bottom: 0.85rem;
+    }
+    .article-intro-p:last-child {
+      margin-bottom: 0;
+    }
+    .callout-box {
+      background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+      border: 1.5px solid #99f6e4;
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      align-items: flex-start;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    @media (min-width: 640px) {
+      .callout-box {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .callout-text h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f766e;
+      margin-bottom: 0.25rem;
+    }
+    .callout-text p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin: 0;
+    }
+    .callout-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+      white-space: nowrap;
+      transition: background-color 0.15s ease;
+    }
+    .callout-btn:hover {
+      background: var(--primary-hover);
+    }
+    .article-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 520px) {
+      .article-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+    .info-mini-card {
+      background: var(--bg-card-subtle);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      box-sizing: border-box;
+      min-width: 0;
+      width: 100%;
+    }
+    .info-mini-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: var(--radius-full);
+      background: var(--primary-light);
+      color: var(--primary-hover);
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+    }
+    .info-mini-title {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .info-mini-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.48;
+    }
+    .mistake-card {
+      background: #ffffff;
+      border: 1.5px solid #fed7aa;
+      border-left: 4px solid #f97316;
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1.1rem;
+      margin-bottom: 0.75rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .mistake-card:last-child {
+      margin-bottom: 0;
+    }
+    .mistake-card h3 {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #9a3412;
+      margin-bottom: 0.25rem;
+    }
+    .mistake-card p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .habit-card {
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1.1rem;
+      margin-bottom: 0.75rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .habit-card:last-child {
+      margin-bottom: 0;
+    }
+    .habit-card h3 {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #14532d;
+      margin-bottom: 0.25rem;
+    }
+    .habit-card p {
+      font-size: 0.86rem;
+      color: #166534;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .danger-rule-card {
+      background: #fef2f2;
+      border: 1.5px solid #fecaca;
+      border-left: 4px solid #dc2626;
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1.1rem;
+      margin-bottom: 0.75rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .danger-rule-card:last-child {
+      margin-bottom: 0;
+    }
+    .danger-rule-card h3 {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #991b1b;
+      margin-bottom: 0.25rem;
+    }
+    .danger-rule-card p {
+      font-size: 0.86rem;
+      color: #7f1d1d;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .label-wins-box {
+      background: #fffbeb;
+      border: 1.5px solid #fde68a;
+      border-left: 4px solid #d97706;
+      border-radius: var(--radius-md);
+      padding: 1rem 1.15rem;
+      font-size: 0.92rem;
+      color: #78350f;
+      line-height: 1.58;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .prose-stack {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .prose-stack strong {
+      color: var(--text-main);
+    }
+    .prose-link {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+    .storage-list {
+      margin: 0.25rem 0 0 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .storage-list strong {
+      color: var(--text-main);
+    }
+    .links-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .links-bar a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.45rem 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 2-4 4 4 4 4-4-4-4Z"/>
+            <path d="m14 6-9.5 9.5a2.12 2.12 0 1 0 3 3L17 9"/>
+            <path d="m9 11 3 3"/>
+            <path d="m5 19-3 3"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Peptide<span class="brand-accent">Calc</span></span>
+          <span class="brand-subtitle">Reconstitution & Syringe Calculator</span>
+        </div>
+      </a>
+      <div class="header-badges">
+        <span class="trust-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Storage Guide • Educational Info
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Top Disclaimer Line (Mandatory PRD Rule) -->
+      <aside class="disclaimer-banner" role="note" aria-label="Medical Disclaimer">
+        <div class="disclaimer-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div class="disclaimer-text">
+          <strong>Educational & Storage Information Only:</strong> This guide covers general storage temperatures, shelf-life rules, and vial handling. It does <em>not</em> recommend dosages, provide medical advice, or describe administration techniques. The label or leaflet that came with a vial always wins over any general guide.
+        </div>
+      </aside>
+
+      <div class="article-container">
+
+        <!-- Article Header & Intro -->
+        <article class="card content-section">
+          <div class="card-header" style="margin-bottom: 1rem;">
+            <div class="step-indicator">Educational Storage Guide</div>
+            <h1 class="card-title" style="font-size: 1.6rem; line-height: 1.25; margin-top: 0.35rem;">Peptide Storage Guide: Fridge, Freezer and Shelf Life</h1>
+            <p class="card-desc">Where unmixed powder and mixed solution belong, how long vials last, and clear signs to discard a vial.</p>
+          </div>
+
+          <div style="margin-bottom: 1.2rem;">
+            <p class="article-intro-p">
+              Storage is where good maths goes to waste — a perfectly calculated vial can still spoil if it sits in a hot room or a warm fridge door. This guide explains where unmixed powder and mixed solution belong, how long each lasts, and how to know when a vial should be thrown away.
+            </p>
+            <p class="article-intro-p" style="background: #f8fafc; border-left: 3px solid var(--primary); padding: 0.65rem 0.85rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 0.9rem; color: var(--text-muted);">
+              <strong>Important Rule:</strong> The label or leaflet that came with a vial always wins over any general guide. This article covers storage facts only — no dose recommendations, injection instructions, or health claims.
+            </p>
+          </div>
+
+          <!-- Calculator Callout Box -->
+          <div class="callout-box">
+            <div class="callout-text">
+              <h3>Track your discard date automatically</h3>
+              <p>Enter your mixing date in the calculator to count your 28–30 day storage window automatically.</p>
+            </div>
+            <a href="index.html" class="callout-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m18 2-4 4 4 4 4-4-4-4Z"/><path d="m14 6-9.5 9.5a2.12 2.12 0 1 0 3 3L17 9"/><path d="m9 11 3 3"/><path d="m5 19-3 3"/></svg>
+              Open Peptide Calculator
+            </a>
+          </div>
+        </article>
+
+        <!-- Section 1: The Label Always Wins -->
+        <section class="card content-section" id="label-always-wins" aria-labelledby="section-1-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 1</div>
+            <h2 id="section-1-title" class="section-title">The Label Always Wins</h2>
+            <p class="section-desc">Always check the printed vial label or leaflet first.</p>
+          </div>
+
+          <div class="label-wins-box">
+            Storage instructions printed on the vial or its leaflet override everything in this guide. When the label gives a specific expiry date or storage temperature, follow the label every time.
+          </div>
+        </section>
+
+        <!-- Section 2: Storing Unmixed Powder (Freeze-Dried Vials) -->
+        <section class="card content-section" id="unmixed-powder" aria-labelledby="section-2-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 2</div>
+            <h2 id="section-2-title" class="section-title">Storing Unmixed Powder (Freeze-Dried Vials)</h2>
+            <p class="section-desc">Dry freeze-dried powder stays stable longer when kept cold, sealed, and away from light.</p>
+          </div>
+
+          <div class="table-scroll-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <span>Scroll sideways on mobile to view full table</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="examples-table">
+              <thead>
+                <tr>
+                  <th scope="col">Storage Level</th>
+                  <th scope="col">Temperature</th>
+                  <th scope="col">Shelf Life</th>
+                  <th scope="col">Handling Rule</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Freezer</strong></td>
+                  <td><span class="draw-pill">About −20°C</span></td>
+                  <td>Long-term (many months and beyond)</td>
+                  <td>Best for long-term storage; keep the vial sealed and dry.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fridge</strong></td>
+                  <td><span class="draw-pill">2–8°C</span></td>
+                  <td>Medium-term</td>
+                  <td>Good for unmixed vials you plan to use soon.</td>
+                </tr>
+                <tr>
+                  <td><strong>Cool, Dark Place</strong></td>
+                  <td>Cool room temperature</td>
+                  <td>Short-term only</td>
+                  <td>Acceptable only short-term; heat and sunlight are the enemies.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mistake-card" style="margin-top: 0.5rem;">
+            <h3>Avoid Repeated Freezing and Thawing</h3>
+            <p>
+              Once a frozen vial comes out to be mixed, do not keep freezing and thawing the same vial again and again. Take out only what you are about to mix, and leave spare unmixed vials undisturbed in the freezer.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 3: Storing Mixed (Reconstituted) Peptides -->
+        <section class="card content-section" id="mixed-peptides" aria-labelledby="section-3-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 3</div>
+            <h2 id="section-3-title" class="section-title">Storing Mixed (Reconstituted) Peptides</h2>
+            <p class="section-desc">Once powder dissolves into liquid, cold storage and timing rules become strict.</p>
+          </div>
+
+          <div class="article-grid-2" style="margin-bottom: 1rem;">
+            <div class="info-mini-card">
+              <span class="info-mini-num">1</span>
+              <div class="info-mini-title">Fridge at 2–8°C Only</div>
+              <div class="info-mini-desc">
+                A mixed vial lives in the <strong>fridge at 2–8°C</strong>, never on the counter or in warm room air.
+              </div>
+            </div>
+
+            <div class="info-mini-card">
+              <span class="info-mini-num">2</span>
+              <div class="info-mini-title">28–30 Day Discard Rule</div>
+              <div class="info-mini-desc">
+                The common rule is to discard it <strong>28–30 days</strong> after the day it was mixed — matching the preservative window of <a href="bacteriostatic-water.html" class="prose-link">bacteriostatic water</a>.
+              </div>
+            </div>
+
+            <div class="info-mini-card">
+              <span class="info-mini-num">3</span>
+              <div class="info-mini-title">NEVER Freeze Mixed Solution</div>
+              <div class="info-mini-desc">
+                Freezing a mixed liquid can damage the peptide structure and make the solution turn cloudy.
+              </div>
+            </div>
+
+            <div class="info-mini-card">
+              <span class="info-mini-num">4</span>
+              <div class="info-mini-title">Keep Out of Light</div>
+              <div class="info-mini-desc">
+                Store the vial inside its box or a small dark case in the fridge so bright light cannot hit the glass.
+              </div>
+            </div>
+          </div>
+
+          <div class="habit-card">
+            <h3>Practical Tip: Write the Mixing Date Immediately</h3>
+            <p>
+              Write the mixing date on the vial with a marker the moment you mix it, so the discard date is never a guess. This site's <a href="index.html" class="prose-link">peptide calculator</a> already counts these days for you.
+              <br><br>
+              <strong>Maths example:</strong> A vial mixed on <strong>1 November</strong> reaches its discard date between <strong>29 November and 1 December</strong>.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 4: Fridge Mistakes That Spoil Vials -->
+        <section class="card content-section" id="fridge-mistakes" aria-labelledby="section-4-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 4</div>
+            <h2 id="section-4-title" class="section-title">Fridge Mistakes That Spoil Vials</h2>
+            <p class="section-desc">Four common placement mistakes that spoil vials inside or outside the fridge.</p>
+          </div>
+
+          <div class="mistake-card">
+            <h3>1. The Fridge Door</h3>
+            <p>
+              Its temperature swings every time the door opens. Store vials on a middle shelf in the main body of the fridge instead, where air stays cool and steady.
+            </p>
+          </div>
+
+          <div class="mistake-card">
+            <h3>2. Touching the Freezer Vent at the Back</h3>
+            <p>
+              Cold air vents along the back wall can freeze nearby liquids. A mixed vial that accidentally freezes counts as damaged.
+            </p>
+          </div>
+
+          <div class="mistake-card">
+            <h3>3. The Bathroom Cabinet or a Sunny Shelf</h3>
+            <p>
+              Steam, room heat, and direct sunlight break peptides down rapidly. Never leave vials near a shower, radiator, or window.
+            </p>
+          </div>
+
+          <div class="mistake-card">
+            <h3>4. No Date on the Vial</h3>
+            <p>
+              After three weeks, nobody remembers the exact mixing day. Always write the mixing date on the vial before putting it away.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 5: Travelling With Peptides -->
+        <section class="card content-section" id="travelling" aria-labelledby="section-5-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 5</div>
+            <h2 id="section-5-title" class="section-title">Travelling With Peptides</h2>
+            <p class="section-desc">Keeping vials cool and trackable on the move.</p>
+          </div>
+
+          <div class="prose-stack">
+            <p>
+              Carry vials in a small insulated pouch with an ice pack so they stay cool (2–8°C), placing a soft barrier between the ice pack and mixed vials so they do not freeze solid. Keep them in hand luggage — never in a hot car boot and never in checked bags where temperatures swing. Recheck the discard date before and after the trip.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 6: When to Discard a Vial -->
+        <section class="card content-section" id="when-to-discard" aria-labelledby="section-6-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 6</div>
+            <h2 id="section-6-title" class="section-title">When to Discard a Vial</h2>
+            <p class="section-desc">Signs that mean a vial should be thrown away immediately.</p>
+          </div>
+
+          <div class="danger-rule-card">
+            <h3>Cloudy Liquid or Floating Particles</h3>
+            <p>
+              Discard the vial if the solution looks cloudy or has floating particles.
+              <br><br>
+              <strong>One exception:</strong> GHK-Cu solution is naturally blue-tinted because it contains copper — blue colour alone is normal for <a href="ghk-cu.html" class="prose-link">GHK-Cu</a>.
+            </p>
+          </div>
+
+          <ul class="storage-list" style="margin-bottom: 1rem;">
+            <li><strong>Colour change:</strong> The liquid has changed colour unexpectedly.</li>
+            <li><strong>Past discard date:</strong> The vial is past its 28–30 day window or printed expiry date.</li>
+            <li><strong>Left warm:</strong> The vial was left warm for many hours.</li>
+            <li><strong>Frozen by mistake:</strong> The mixed vial was accidentally frozen solid.</li>
+          </ul>
+
+          <div class="label-wins-box" style="background: #f8fafc; border-color: #cbd5e1; border-left-color: var(--primary); color: var(--text-main);">
+            <strong>Closing Rule:</strong> When in doubt, throw it out — a new vial is cheaper than a spoiled one used in your calculations.
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="card content-section" id="faq" aria-labelledby="faq-title">
+          <div class="section-header">
+            <div class="step-indicator">Common Questions</div>
+            <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+            <p class="section-desc">Quick answers to common storage, freezing, and shelf-life questions.</p>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-summary">
+                <span class="faq-question-text">How long does a mixed peptide vial last?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>In the fridge at 2–8°C, the common rule is 28–30 days from the mixing day, then discard — and the calculator on this site works out that date for you. The vial's own label always wins.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-question-text">Can I freeze peptides?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>Unmixed freeze-dried powder: yes, the freezer is the best long-term home. Mixed solution: no — freezing can damage it and turn it cloudy.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-question-text">Where in the fridge should vials go?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>In the main body of the fridge, in their box to block light — not in the door, and not pushed against the freezer vent at the back.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-question-text">My mixed vial was left out overnight. Is it ruined?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>One night at room temperature is a judgement call this guide will not make for you: check the label, and if the liquid looks cloudy or the vial feels warm for many hours, the safe rule is discard and start fresh.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- Keep Learning Navigation Section -->
+        <nav class="card content-section" aria-label="Keep Learning" style="text-align: center; padding: 1.25rem 1rem;">
+          <p style="font-size: 0.94rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">Keep learning</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Explore related water, reconstitution, and calculation tools:</p>
+          <div class="links-bar">
+            <a href="bacteriostatic-water.html" class="draw-pill">Bacteriostatic Water Guide</a>
+            <a href="how-to-reconstitute-peptides.html" class="draw-pill">How to Reconstitute Peptides</a>
+            <a href="index.html" class="draw-pill" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 2-4 4 4 4 4-4-4-4Z"/><path d="m14 6-9.5 9.5a2.12 2.12 0 1 0 3 3L17 9"/><path d="m9 11 3 3"/><path d="m5 19-3 3"/></svg>
+              Peptide Calculator
+            </a>
+          </div>
+        </nav>
+
+        <!-- Full Bottom Medical Safety Disclaimer -->
+        <aside class="disclaimer-banner" role="note" aria-label="Full Medical Disclaimer" style="margin-bottom: 2rem;">
+          <div class="disclaimer-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <div class="disclaimer-text">
+            <strong>Educational & Storage Information Only:</strong> This article provides general educational and storage information only. It is not medical advice and contains no dose recommendations, administration instructions, or health claims. Always consult a licensed medical professional, follow your vial's label and pharmacy instructions, and follow your local laws and regulations.
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p class="footer-copy">© 2026 PeptideCalc. Dedicated to harm reduction, mathematical clarity, and research accuracy.</p>
+      <p class="footer-legal">For educational & research purposes only. Not intended to diagnose, treat, cure, or prevent any medical condition.</p>
+    </div>
+  </footer>
+</body>
+</html>
