@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>How to Read an Insulin Syringe: U-100, U-50 and U-40 Explained</title>
+  <meta name="description" content="Learn to read an insulin syringe the maths way: what U-100, U-50 and U-40 really mean, how units convert to mL on each type, and why the same dose shows three different unit numbers.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Scoped styling for syringe reading guide article */
+    .article-container {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .article-intro-p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text-main);
+      margin-bottom: 0.85rem;
+    }
+    .article-intro-p:last-child {
+      margin-bottom: 0;
+    }
+    .callout-box {
+      background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+      border: 1.5px solid #99f6e4;
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      align-items: flex-start;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    @media (min-width: 640px) {
+      .callout-box {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .callout-text h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f766e;
+      margin-bottom: 0.25rem;
+    }
+    .callout-text p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin: 0;
+    }
+    .callout-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+      white-space: nowrap;
+      transition: background-color 0.15s ease;
+    }
+    .callout-btn:hover {
+      background: var(--primary-hover);
+    }
+    .article-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 520px) {
+      .article-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+    .article-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 640px) {
+      .article-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+    .info-mini-card {
+      background: var(--bg-card-subtle);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      box-sizing: border-box;
+      min-width: 0;
+      width: 100%;
+    }
+    .info-mini-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+      background: var(--primary-light);
+      color: var(--primary-hover);
+      font-size: 0.75rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      width: fit-content;
+      margin-bottom: 0.2rem;
+    }
+    .info-mini-title {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .info-mini-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.48;
+    }
+    .formula-step-block {
+      background: #ffffff;
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1.15rem;
+      margin-bottom: 0.75rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .formula-step-block:last-child {
+      margin-bottom: 0;
+    }
+    .formula-step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .formula-step-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--primary-light);
+      color: var(--primary-hover);
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+    }
+    .formula-step-heading {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .formula-math-box {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 0.85rem;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #0369a1;
+      margin: 0.4rem 0;
+      overflow-x: auto;
+      white-space: nowrap;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .formula-step-explanation {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.48;
+    }
+    .mistake-card {
+      background: #ffffff;
+      border: 1.5px solid #fed7aa;
+      border-left: 4px solid #f97316;
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1.1rem;
+      margin-bottom: 0.75rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .mistake-card:last-child {
+      margin-bottom: 0;
+    }
+    .mistake-card h3 {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #9a3412;
+      margin-bottom: 0.25rem;
+    }
+    .mistake-card p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .danger-rule-card {
+      background: #fef2f2;
+      border: 1.5px solid #fecaca;
+      border-left: 4px solid #dc2626;
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1.1rem;
+      margin-bottom: 0.75rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+    }
+    .danger-rule-card:last-child {
+      margin-bottom: 0;
+    }
+    .danger-rule-card h3 {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #991b1b;
+      margin-bottom: 0.25rem;
+    }
+    .danger-rule-card p {
+      font-size: 0.86rem;
+      color: #7f1d1d;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .prose-stack {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .prose-stack strong {
+      color: var(--text-main);
+    }
+    .prose-link {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+    .links-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .links-bar a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.45rem 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 2-4 4 4 4 4-4-4-4Z"/>
+            <path d="m14 6-9.5 9.5a2.12 2.12 0 1 0 3 3L17 9"/>
+            <path d="m9 11 3 3"/>
+            <path d="m5 19-3 3"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Peptide<span class="brand-accent">Calc</span></span>
+          <span class="brand-subtitle">Reconstitution & Syringe Calculator</span>
+        </div>
+      </a>
+      <div class="header-badges">
+        <span class="trust-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Educational Guide • Syringe Math
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Top Disclaimer Line (Mandatory PRD Rule) -->
+      <aside class="disclaimer-banner" role="note" aria-label="Medical Disclaimer">
+        <div class="disclaimer-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div class="disclaimer-text">
+          <strong>Educational & Research Math Only:</strong> This guide explains how to read syringe markings and convert units to mL across syringe types. It does <em>not</em> recommend dosages, provide medical advice, or describe injection techniques. Always follow instructions from your licensed healthcare provider or manufacturer vial labeling.
+        </div>
+      </aside>
+
+      <div class="article-container">
+
+        <!-- Article Header & Intro -->
+        <article class="card content-section">
+          <div class="card-header" style="margin-bottom: 1rem;">
+            <div class="step-indicator">Educational Guide</div>
+            <h1 class="card-title" style="font-size: 1.6rem; line-height: 1.25; margin-top: 0.35rem;">How to Read an Insulin Syringe: U-100, U-50 and U-40 Explained</h1>
+            <p class="card-desc">Understanding barrel markings, volume scales, and converting units to milliliters with precision.</p>
+          </div>
+
+          <div style="margin-bottom: 1.2rem;">
+            <p class="article-intro-p">
+              The number printed on a syringe — U-100, U-50 or U-40 — quietly changes what every line on it means, and using the wrong type's maths is one of the biggest conversion errors beginners make. This page explains the three scales with plain maths, which is exactly why the <a href="index.html" class="prose-link">peptide calculator</a> on this site asks for the syringe type before it answers.
+            </p>
+            <p class="article-intro-p" style="background: #f8fafc; border-left: 3px solid var(--primary); padding: 0.65rem 0.85rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 0.9rem; color: var(--text-muted);">
+              <strong>Important Safety Rule:</strong> This guide explains only how to read the markings on a syringe and how units convert to mL on each syringe type. It is maths and label-reading, nothing else. It does not describe injection technique of any kind (no needle placement, no skin, and no steps of giving an injection), nor does it recommend any dose or make any health or benefit claims.
+            </p>
+          </div>
+
+          <!-- Calculator Callout Box -->
+          <div class="callout-box">
+            <div class="callout-text">
+              <h3>Select your syringe type in the calculator</h3>
+              <p>Choose U-100, U-50, or U-40 in the free calculator to see exact units and an interactive visual syringe display.</p>
+            </div>
+            <a href="index.html" class="callout-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m18 2-4 4 4 4 4-4-4-4Z"/><path d="m14 6-9.5 9.5a2.12 2.12 0 1 0 3 3L17 9"/><path d="m9 11 3 3"/><path d="m5 19-3 3"/></svg>
+              Open Peptide Calculator
+            </a>
+          </div>
+        </article>
+
+        <!-- Section 1: What U-100, U-50 and U-40 Mean -->
+        <section class="card content-section" id="what-types-mean" aria-labelledby="section-1-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 1</div>
+            <h2 id="section-1-title" class="section-title">What U-100, U-50 and U-40 Mean</h2>
+            <p class="section-desc">The number is simply how many unit marks fit in 1 mL on that syringe type.</p>
+          </div>
+
+          <div class="table-scroll-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <span>Scroll sideways on mobile to view full table</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="examples-table">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 22%;">Syringe Type</th>
+                  <th scope="col" style="width: 25%;">Units per 1 mL</th>
+                  <th scope="col" style="width: 25%;">Volume per 1 Unit</th>
+                  <th scope="col" style="width: 28%;">Usage Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>U-100</strong></td>
+                  <td>100 units = 1 mL</td>
+                  <td><span class="draw-pill">1 unit = 0.01 mL</span></td>
+                  <td>The standard type, and the one this site's calculators use by default.</td>
+                </tr>
+                <tr>
+                  <td><strong>U-50</strong></td>
+                  <td>50 units = 1 mL</td>
+                  <td><span class="draw-pill">1 unit = 0.02 mL</span></td>
+                  <td>Used for specific clinical protocols.</td>
+                </tr>
+                <tr>
+                  <td><strong>U-40</strong></td>
+                  <td>40 units = 1 mL</td>
+                  <td><span class="draw-pill">1 unit = 0.025 mL</span></td>
+                  <td>Common on veterinary syringes.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mistake-card" style="margin-top: 0.85rem;">
+            <h3>The Liquid Does Not Change — Only the Ruler Changes</h3>
+            <p>
+              The liquid does not change between syringes — only the ruler printed on the barrel changes. A volume of 0.1 mL is the exact same amount of liquid in any syringe, but the tick marks on the barrel count it differently.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Reading the Lines -->
+        <section class="card content-section" id="reading-lines" aria-labelledby="section-2-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 2</div>
+            <h2 id="section-2-title" class="section-title">Reading the Lines</h2>
+            <p class="section-desc">How numbers, tick marks, and syringe sizes work together.</p>
+          </div>
+
+          <div class="prose-stack" style="margin-bottom: 1rem;">
+            <p>
+              The numbers printed along the barrel show the big steps (on a 1 mL U-100 syringe the long lines and numbers usually mark every 10 units: 10, 20, 30 ... 100). The small lines between numbers each count 1 unit on most U-100 syringes. Always read from the 0 line at the top, and always check the type printed on the barrel before counting anything.
+            </p>
+          </div>
+
+          <div class="article-grid-3">
+            <div class="info-mini-card">
+              <span class="info-mini-badge">0.3 mL Syringe</span>
+              <div class="info-mini-title">30 Units Total</div>
+              <div class="info-mini-desc">
+                Holds a maximum of 0.3 mL (30 units full count).
+              </div>
+            </div>
+
+            <div class="info-mini-card">
+              <span class="info-mini-badge">0.5 mL Syringe</span>
+              <div class="info-mini-title">50 Units Total</div>
+              <div class="info-mini-desc">
+                Holds a maximum of 0.5 mL (50 units full count).
+              </div>
+            </div>
+
+            <div class="info-mini-card">
+              <span class="info-mini-badge">1.0 mL Syringe</span>
+              <div class="info-mini-title">100 Units Total</div>
+              <div class="info-mini-desc">
+                Holds a maximum of 1.0 mL (100 units full count).
+              </div>
+            </div>
+          </div>
+
+          <div class="mistake-card" style="margin-top: 1rem;">
+            <h3>Common U-100 Sizes: A "Full Syringe" Is NOT Always 100 Units</h3>
+            <p>
+              Common U-100 syringe sizes: 0.3 mL (30 units total), 0.5 mL (50 units) and 1 mL (100 units) — the full count of a small syringe is a small number, so a "full syringe" is NOT always 100 units.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 3: The Same Dose on Three Syringes -->
+        <section class="card content-section" id="worked-example" aria-labelledby="section-3-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 3</div>
+            <h2 id="section-3-title" class="section-title">The Same Dose on Three Syringes</h2>
+            <p class="section-desc">A worked example showing how the same liquid reads on three scales.</p>
+          </div>
+
+          <div class="prose-stack" style="margin-bottom: 1rem;">
+            <p>
+              Take the example mix from our <a href="peptide-units-explained.html" class="prose-link">units guide</a>: a 5 mg vial mixed with 2 mL of water = 25 mcg per U-100 unit. An example dose of 250 mcg = 250 ÷ 25 = 10 units on a U-100 syringe — and 10 U-100 units is 10 × 0.01 mL = 0.1 mL of liquid.
+            </p>
+            <p>
+              Now the SAME 0.1 mL of the same liquid:
+            </p>
+          </div>
+
+          <div class="formula-step-block">
+            <div class="formula-step-header">
+              <span class="formula-step-tag">U-100</span>
+              <h3 class="formula-step-heading">On a U-100 Syringe</h3>
+            </div>
+            <div class="formula-math-box">
+              0.1 mL × 100 = 10 units
+            </div>
+            <p class="formula-step-explanation">10 units of 0.01 mL = 0.1 mL liquid.</p>
+          </div>
+
+          <div class="formula-step-block">
+            <div class="formula-step-header">
+              <span class="formula-step-tag">U-50</span>
+              <h3 class="formula-step-heading">On a U-50 Syringe</h3>
+            </div>
+            <div class="formula-math-box">
+              0.1 mL × 50 = 5 units
+            </div>
+            <p class="formula-step-explanation">On a U-50 syringe it reads 0.1 × 50 = 5 units.</p>
+          </div>
+
+          <div class="formula-step-block">
+            <div class="formula-step-header">
+              <span class="formula-step-tag">U-40</span>
+              <h3 class="formula-step-heading">On a U-40 Syringe</h3>
+            </div>
+            <div class="formula-math-box">
+              0.1 mL × 40 = 4 units
+            </div>
+            <p class="formula-step-explanation">On a U-40 syringe it reads 0.1 × 40 = 4 units.</p>
+          </div>
+
+          <div class="prose-stack" style="margin-top: 1rem;">
+            <p>
+              Same dose, same liquid — three different numbers, because the rulers differ.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 4: The 2.5× Mistake -->
+        <section class="card content-section" id="two-point-five-mistake" aria-labelledby="section-4-title">
+          <div class="section-header">
+            <div class="step-indicator">Section 4</div>
+            <h2 id="section-4-title" class="section-title">The 2.5× Mistake</h2>
+            <p class="section-desc">Why confusing syringe scales multiplies your volume.</p>
+          </div>
+
+          <div class="danger-rule-card">
+            <h3>Explain the Danger in Plain Maths</h3>
+            <p>
+              If someone works out "10 units" using U-100 maths but draws it on a U-40 syringe, those 10 U-40 units are <code>10 × 0.025 mL = 0.25 mL</code> — two and a half times the liquid they meant (0.1 mL).
+            </p>
+          </div>
+
+          <div class="prose-stack">
+            <p>
+              That is why the syringe type setting exists in the calculator, and why you should never copy unit numbers from someone using a different syringe.
+            </p>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="card content-section" id="faq" aria-labelledby="faq-title">
+          <div class="section-header">
+            <div class="step-indicator">Common Questions</div>
+            <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+            <p class="section-desc">Short, direct answers to common syringe-reading questions.</p>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-summary">
+                <span class="faq-question-text">Why does the calculator ask for my syringe type?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>Because the type changes the maths: the same liquid amount is 10 units on a U-100, 5 on a U-50 and 4 on a U-40. Wrong type in, wrong units out.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-question-text">Is 10 units always 0.1 mL?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>Only on a U-100 syringe. On a U-50, 10 units = 0.2 mL; on a U-40, 10 units = 0.25 mL.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-question-text">My syringe is full at 30 units. Is it broken?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>No — it is a 0.3 mL U-100 syringe. "Full" means its own maximum, not 100 units.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-question-text">Can I use a U-40 syringe with this site's calculator?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes — select U-40 as the syringe type and the calculator converts for that scale. Never use U-100 numbers on a U-40 syringe.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- Keep Learning Navigation Section -->
+        <nav class="card content-section" aria-label="Keep Learning" style="text-align: center; padding: 1.25rem 1rem;">
+          <p style="font-size: 0.94rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">Keep learning</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Explore related units, storage, and calculation tools:</p>
+          <div class="links-bar">
+            <a href="peptide-units-explained.html" class="draw-pill">Peptide Units Explained</a>
+            <a href="peptide-storage-guide.html" class="draw-pill">Peptide Storage Guide</a>
+            <a href="index.html" class="draw-pill" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 2-4 4 4 4 4-4-4-4Z"/><path d="m14 6-9.5 9.5a2.12 2.12 0 1 0 3 3L17 9"/><path d="m9 11 3 3"/><path d="m5 19-3 3"/></svg>
+              Peptide Calculator
+            </a>
+          </div>
+        </nav>
+
+        <!-- Full Bottom Medical Safety Disclaimer -->
+        <aside class="disclaimer-banner" role="note" aria-label="Full Medical Disclaimer" style="margin-bottom: 2rem;">
+          <div class="disclaimer-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <div class="disclaimer-text">
+            <strong>Educational & Research Math Only:</strong> This guide explains syringe markings and mathematical conversions. It does not recommend dosages, prescribe protocols, or provide medical advice. All numbers and examples are strictly illustrative mathematical conversions. Always follow instructions from your licensed healthcare provider, prescriber, or manufacturer vial labeling, and ensure compliance with your local laws and regulations.
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p class="footer-copy">© 2026 PeptideCalc. Dedicated to harm reduction, mathematical clarity, and research accuracy.</p>
+      <p class="footer-legal">For educational & research purposes only. Not intended to diagnose, treat, cure, or prevent any medical condition.</p>
+    </div>
+  </footer>
+</body>
+</html>
